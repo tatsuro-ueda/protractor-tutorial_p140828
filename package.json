@@ -8,7 +8,8 @@
     "protractor": "^1.1.1"
   },
   "scripts": {
-    "test": "protractor test.js"
+    "test": "protractor test.js",
+    "conf": "protractor conf.js"
   },
   "repository": {
     "type": "git",
