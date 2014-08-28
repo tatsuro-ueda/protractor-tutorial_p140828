@@ -3,31 +3,30 @@ describe('AngularJSホームページ', function() {
   var secondNumber = element(by.model('second'));
   var goButton = element(by.id('gobutton'));
   var latestResult = element(by.binding('latest'));
+  var history = element.all(by.repeater('result in memory'));
+
+  function add(a, b) {
+    firstNumber.sendKeys(a);
+    secondNumber.sendKeys(b);
+    goButton.click();
+  }
 
   beforeEach(function() {
     browser.get('http://juliemr.github.io/protractor-demo/');
   });
 
-  it('タイトルを持つ', function() {
-    expect(browser.getTitle()).toEqual('Super Calculator');
-  });
+  it('履歴がある', function() {
+    add(1, 2);
+    add(3, 4);
 
-  it('1と2を加える', function() {
-    firstNumber.sendKeys(1);
-    secondNumber.sendKeys(2);
+    expect(history.count()).toEqual(2);
+    expect(history.last().getText()).toContain('1 + 2');
+    //expect(history.first().getText()).toContain('foo'); // これはまちがい！
+    expect(history.first().getText()).toContain('3 + 4');
 
-    goButton.click();
+    add(5, 6);
 
-    expect(latestResult.getText()).toEqual('3');
-  });
-
-  it('4と6を加える', function() {
-    // この部分を自分で書いて下さい
-    firstNumber.sendKeys(4);
-    secondNumber.sendKeys(6);
-
-    goButton.click();
-
-    expect(latestResult.getText()).toEqual('10');
+    //expect(history.count()).toEqual(0); // これはまちがい！
+    expect(history.count()).toEqual(3);
   });
 });
