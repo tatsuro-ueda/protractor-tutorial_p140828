@@ -1,0 +1,23 @@
+{
+  "name": "protractor-tutorial_p140828",
+  "version": "1.0.0",
+  "description": "Protractor Tutorial Sample",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "protractor": "^1.1.1"
+  },
+  "scripts": {
+    "test": "protractor test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weed/protractor-tutorial_p140828.git"
+  },
+  "author": "Tatsuro Ueda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weed/protractor-tutorial_p140828/issues"
+  },
+  "homepage": "https://github.com/weed/protractor-tutorial_p140828"
+}
